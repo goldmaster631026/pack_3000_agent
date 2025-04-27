@@ -27,7 +27,7 @@ const PlayAiAgent = () => {
           console.error("Failed to load PlayAI SDK script");
         }}
       />
-      <div id="play-ai-agent-container"></div>
+      <div id="play-ai-agent-container"> Here</div>
     </>
   );
 };
