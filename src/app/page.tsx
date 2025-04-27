@@ -12,10 +12,37 @@
 
 "use client";
 import Script from "next/script";
+import { SetStateAction, useEffect, useState } from 'react';
+import Head from 'next/head';
+
 
 export default function Home() {
+  const [userInput, setUserInput] = useState('');
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.innerHTML = `
+      addEventListener("load", () => {
+        PlayAI.open('g2h8hTPr8-pVeFlOrguOx');
+      });
+    `;
+    document.body.appendChild(script);
+  }, []);
+  
+  const handleUserInput = (input: SetStateAction<string>) => {
+    setUserInput(input);
+    // Call the AI Agent's API to process the user input
+    window.PlayAI.send(input);
+  };
   return (
     <div>
+      <Head>
+        <script
+          type="text/javascript"
+          src="https://cdn.jsdelivr.net/npm/@play-ai/agent-web-sdk@ht"
+        />
+      </Head>
+      
       {/* Dapta */}
       <Script
         src="https://widget.dapta.ai/dapta_agent_min.js?agentId=aae76279-aed5-4b38-b978-931c0326dde0"
@@ -23,17 +50,12 @@ export default function Home() {
       />
 
       {/* Play AI */}
-      {/* <Script
-        src="https://cdn.jsdelivr.net/npm/@play-ai/agent-web-sdk@latest"
-        strategy="afterInteractive"
-      />
-      <Script strategy="lazyOnload">
-        {`
-          addEventListener("load", () => {
-            PlayAI.open('g2h8hTPr8-pVeFlOrguOx');
-          });
-        `}
-      </Script> */}
+      <div>
+        <input type="text" value={userInput} onChange={(e) => handleUserInput(e.target.value)} />
+        <div id="ai-agent-container" />
+        {/* Rest of your page content */}
+      </div>
+  
 
   
 
