@@ -1,51 +1,38 @@
-// // src/components/PlayAiAgent.tsx
-// "use client";
-
-// import { useEffect } from "react";
-// import Script from "next/script";
-
-// const PlayAiAgent = () => {
-//   useEffect(() => {
-//     // Initialize PlayAI only after the script has loaded and PlayAI is available
-//     if (typeof window !== "undefined" && window.PlayAI && typeof window.PlayAI.open === "function") {
-//       window.PlayAI.open("g2h8hTPr8-pVeFlOrguOx");
-//     }
-//   }, []);
-
-//   return (
-//     <>
-//       {/* Load PlayAI SDK asynchronously with Next.js Script component */}
-//       <Script
-//         src="https://cdn.jsdelivr.net/npm/@play-ai/agent-web-sdk@ht"
-//         strategy="afterInteractive" // loads script after hydration
-//         onLoad={() => {
-//           if (window.PlayAI && typeof window.PlayAI.open === "function") {
-//             window.PlayAI.open("g2h8hTPr8-pVeFlOrguOx");
-//           }
-//         }}
-//         onError={() => {
-//           console.error("Failed to load PlayAI SDK script");
-//         }}
-//       />
-//       <div id="play-ai-agent-container"> Here</div>
-//     </>
-//   );
-// };
-
-// export default PlayAiAgent;
-
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { open as openEmbed } from "@play-ai/agent-web-sdk";
 
-const webEmbedId = "g2h8hTPr8-pVeFlOrguOx"; // your actual embed ID
+const webEmbedId = "g2h8hTPr8-pVeFlOrguOx";
 
-const PlayAiAgent = () => {
+export default function PlayAiAgent() {
+  const [text, setText] = useState("Change this text");
+
+  const events = [
+    {
+      name: "change-text",
+      when: "The user says what they want to change the text on the screen to",
+      data: {
+        text: { type: "string", description: "The text to change to" },
+      },
+    },
+  ] as const;
+
+  const onEvent = (event: any) => {
+    console.log("onEvent: ", event);
+    if (event.name === "change-text") {
+      setText(event.data.text);
+    }
+  };
+
   useEffect(() => {
-    openEmbed(webEmbedId);
+    openEmbed(webEmbedId, { events, onEvent });
   }, []);
 
-  return <div id="play-ai-agent-container"></div>;
-};
-
-export default PlayAiAgent;
+  return (
+    <>
+      <div className="flex justify-center items-center h-[70vh]">
+        <div className="font-medium text-2xl">{text}</div>
+      </div>
+    </>
+  );
+}
