@@ -12,7 +12,7 @@
 
 "use client";
 import React from 'react';
-import CallButton from '@/components/CallButton';
+// import CallButton from '@/components/CallButton';
 
 import Script from "next/script";
 import Image from "next/image";
@@ -64,10 +64,10 @@ export default function Home() {
 
   
 
-      <img className="h-auto w-auto max-w-full rounded-lg shadow-lg mx-auto my-4" src="country.png" alt="map" />
-      <img className="h-auto max-w-full rounded-lg shadow-lg mx-auto my-4" src="pack3000map.png" alt="map" />
-      <img className="h-auto max-w-full rounded-lg shadow-lg mx-auto my-6" src="magna.png" alt="map" />
-      <img className="h-auto max-w-full rounded-lg shadow-lg mx-auto my-4" src="dashboardmachine.png" alt="map" />
+      <Image className="h-auto w-auto max-w-full rounded-lg shadow-lg mx-auto my-4" src="country.png" alt="map" />
+      <Image className="h-auto max-w-full rounded-lg shadow-lg mx-auto my-4" src="pack3000map.png" alt="map" />
+      <Image className="h-auto max-w-full rounded-lg shadow-lg mx-auto my-6" src="magna.png" alt="map" />
+      <Image className="h-auto max-w-full rounded-lg shadow-lg mx-auto my-4" src="dashboardmachine.png" alt="map" />
     </div>
   );
 }
