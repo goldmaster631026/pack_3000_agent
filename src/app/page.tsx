@@ -14,7 +14,7 @@
 import Script from "next/script";
 // import PlayAiAgent from "@/components/playAiAgent";
 import dynamic from 'next/dynamic';
-import PlayAiAgent from "@/components/playAiAgent";
+import PlayAiAgent from "@/components/PlayAiAgent";
 
 // const PlayAiAgent = dynamic(() => import('@/components/playAiAgent'), { ssr: false });
 
@@ -40,7 +40,7 @@ export default function Home() {
         `}
       </Script> */}
 
-      {/* <PlayAiAgent /> */}
+      <PlayAiAgent />
 
       <img className="h-auto max-w-full rounded-lg shadow-lg mx-auto my-4" src="country.png" alt="map" />
       <img className="h-auto max-w-full rounded-lg shadow-lg mx-auto my-4" src="pack3000map.png" alt="map" />
