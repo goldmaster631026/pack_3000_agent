@@ -62,12 +62,13 @@ export default function Home() {
       {/* <PlayAiAgent /> */}
       
 
-  
-
-      <Image className="h-auto w-auto max-w-full rounded-lg shadow-lg mx-auto my-4" src="country.png" alt="map" />
-      <Image className="h-auto max-w-full rounded-lg shadow-lg mx-auto my-4" src="pack3000map.png" alt="map" />
-      <Image className="h-auto max-w-full rounded-lg shadow-lg mx-auto my-6" src="magna.png" alt="map" />
-      <Image className="h-auto max-w-full rounded-lg shadow-lg mx-auto my-4" src="dashboardmachine.png" alt="map" />
+      
+      <Image className="h-auto w-auto max-w-full rounded-lg shadow-lg mx-auto mt-44" src="/pack-slogan.png" alt="map" width={1600} height={304} />
+      <Image className="h-auto w-auto max-w-full rounded-lg shadow-lg mx-auto my-4" src="/country.png" alt="map" width={1000} height={150} />
+      <Image className="h-auto max-w-full rounded-lg shadow-lg mx-auto my-4" src="/pack3000map.png" alt="map" width={1600} height={850} />
+      <Image className="h-auto max-w-full rounded-lg shadow-lg mx-auto my-6" src="/magna.png" alt="map" width={300} height={70} />
+      <Image className="h-auto max-w-full rounded-lg shadow-lg mx-auto my-4" src="/dashboardmachine.png" alt="map" width={1600} height={330} />
+      <Image className="h-auto max-w-full rounded-lg mx-auto mt-8 mb-16" src="/bottom-slogan.png" alt="map" width={1600} height={727} />
     </div>
   );
 }
