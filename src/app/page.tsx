@@ -14,8 +14,12 @@
 import Script from "next/script";
 import Image from "next/image";
 // import Head from 'next/head';
-import PlayAiAgent from "@/components/PlayAiAgent";
+// import PlayAiAgent from "@/components/PlayAiAgent";
+import dynamic from "next/dynamic";
 
+const PlayAiAgent = dynamic(() => import("@/components/PlayAiAgent"), {
+  ssr: false,
+});
 
 export default function Home() {
   // const [userInput, setUserInput] = useState('');

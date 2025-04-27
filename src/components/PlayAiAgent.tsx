@@ -1,13 +1,20 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { open as openEmbed } from "@play-ai/agent-web-sdk";
 
 const webEmbedId = "g2h8hTPr8-pVeFlOrguOx";
 
+type ChangeTextEvent = {
+  name: "change-text";
+  data: { text: string };
+};
+
+type AgentEvent = ChangeTextEvent; // Extend as needed
+
 export default function PlayAiAgent() {
   const [text, setText] = useState("Change this text");
 
-  const events = [
+  const events = useMemo(() => [
     {
       name: "change-text",
       when: "The user says what they want to change the text on the screen to",
@@ -15,9 +22,9 @@ export default function PlayAiAgent() {
         text: { type: "string", description: "The text to change to" },
       },
     },
-  ] as const;
+  ] as const, []);
 
-  const onEvent = (event: any) => {
+  const onEvent = (event: AgentEvent) => {
     console.log("onEvent: ", event);
     if (event.name === "change-text") {
       setText(event.data.text);
@@ -26,13 +33,11 @@ export default function PlayAiAgent() {
 
   useEffect(() => {
     openEmbed(webEmbedId, { events, onEvent });
-  }, []);
+  }, [events, onEvent]);
 
   return (
-    <>
-      <div className="flex justify-center items-center h-[70vh]">
-        <div className="font-medium text-2xl">{text}</div>
-      </div>
-    </>
+    <div className="flex justify-center items-center h-[70vh]">
+      <div className="font-medium text-2xl">{text}</div>
+    </div>
   );
 }
