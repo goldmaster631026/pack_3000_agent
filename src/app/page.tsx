@@ -11,15 +11,18 @@
 // }
 
 "use client";
+import React from 'react';
+import CallButton from '@/components/CallButton';
+
 import Script from "next/script";
 import Image from "next/image";
 // import Head from 'next/head';
 // import PlayAiAgent from "@/components/PlayAiAgent";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 
-const PlayAiAgent = dynamic(() => import("@/components/PlayAiAgent"), {
-  ssr: false,
-});
+// const PlayAiAgent = dynamic(() => import("@/components/PlayAiAgent"), {
+//   ssr: false,
+// });
 
 export default function Home() {
   // const [userInput, setUserInput] = useState('');
@@ -56,14 +59,15 @@ export default function Home() {
 
       {/* Play AI */}
     
-      <PlayAiAgent />
+      {/* <PlayAiAgent /> */}
+      
 
   
 
-      <Image className="h-auto max-w-full rounded-lg shadow-lg mx-auto my-4" src="country.png" alt="map" />
-      <Image className="h-auto max-w-full rounded-lg shadow-lg mx-auto my-4" src="pack3000map.png" alt="map" />
-      <Image className="h-auto max-w-full rounded-lg shadow-lg mx-auto my-6" src="magna.png" alt="map" />
-      <Image className="h-auto max-w-full rounded-lg shadow-lg mx-auto my-4" src="dashboardmachine.png" alt="map" />
+      <img className="h-auto w-auto max-w-full rounded-lg shadow-lg mx-auto my-4" src="country.png" alt="map" />
+      <img className="h-auto max-w-full rounded-lg shadow-lg mx-auto my-4" src="pack3000map.png" alt="map" />
+      <img className="h-auto max-w-full rounded-lg shadow-lg mx-auto my-6" src="magna.png" alt="map" />
+      <img className="h-auto max-w-full rounded-lg shadow-lg mx-auto my-4" src="dashboardmachine.png" alt="map" />
     </div>
   );
 }
