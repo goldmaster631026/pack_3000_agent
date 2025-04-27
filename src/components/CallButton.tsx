@@ -6,7 +6,7 @@ const telLink = phoneNumber.replace(/[^+\d]/g, '');
 
 const CallButton: React.FC = () => {
     return (
-      <a href={`tel:${telLink}`} style={{ textDecoration: 'none', color: 'black', fontSize: '30px', marginLeft: '20px' }}>
+      <a href={`tel:${telLink}`} style={{ textDecoration: 'none', color: 'black', fontSize: '30px', marginLeft: '20px'}}>
         
         <button type="button" className='max-sm:text-base flex flex-row hover:text-blue transition-colors duration-200 cursor-pointer items-center'>
           
@@ -14,6 +14,7 @@ const CallButton: React.FC = () => {
           {phoneNumber}
         </button>
       </a>
+    
     );
   };
 
