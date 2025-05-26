@@ -8,7 +8,7 @@ export default function Footer() {
             2025@pack3000 
         </div>
         <a href="https://www.softwaredevelopmentgroup.net" className="h-16 bg-black text-white flex items-center justify-center font-bold text-500">
-            Facebook
+            More products
         </a>
         </div>
     );
