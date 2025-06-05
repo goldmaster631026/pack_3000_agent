@@ -8,11 +8,9 @@ export default function Footer() {
             2025@pack3000 
         </div>
         <a href="https://www.softwaredevelopmentgroup.net" className="h-16 bg-black text-white flex items-center justify-center font-bold text-500">
-            More products
+            More products : Updating from demanding....coming soon.
         </a>
-        <div className="h-16 bg-black text-white flex items-center justify-center font-bold text-500">
-            Updating from demanding....coming soon.
-        </div>
+       
         </div>
     );
 }
