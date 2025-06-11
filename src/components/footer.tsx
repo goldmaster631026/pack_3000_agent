@@ -4,11 +4,11 @@ export default function Footer() {
         {/* <div className="h-26 bg-gray-500 text-white flex items-center justify-center font-bold text-500">
             Pack3000
         </div> */}
-        <div className="h-16 bg-black text-white flex items-center justify-center font-bold text-500">
-            2025@pack3000 
-        </div>
+        <a href="https://welcome-ai-agent-cs.vercel.app" className="h-16 bg-black text-white flex items-center justify-center font-bold text-500">
+            Click - it Upgraded Full version
+        </a>
         <a href="https://www.softwaredevelopmentgroup.net" className="h-16 bg-black text-white flex items-center justify-center font-bold text-500">
-            More products : Updating from demanding....coming soon.
+            Click - More products : Updating from demanding....coming soon.
         </a>
        
         </div>
